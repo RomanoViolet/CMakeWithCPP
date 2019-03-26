@@ -4,8 +4,4 @@
 ### Requirements towards Interface A
 Requirement ID | Requirement | Date  | Notes | Approvals
 ---------------|-------------|-------|-------|----------
-R-001 |/
-The interface shall accept an 8-bit unsigned data stream which provides sensed brightness in the range 0-255. | \\
-26 January 2018 |/
-Implemented on 26 March 2018 |/
-Alexander J., SW-Architect
+R-001 |The interface shall accept an 8-bit unsigned data stream which provides sensed brightness in the range 0-255. | 26 January 2018 |Implemented on 26 March 2018 |Alexander J., SW-Architect
