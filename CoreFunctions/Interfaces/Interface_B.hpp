@@ -6,7 +6,7 @@
  * @brief This class provides a way to communicate data with components that are used to build the complete applications.
  * @version 1.2
  * Interaction with this class is only via set'ters and get'ters.
- * 
+ *
  */
 class InterfaceB
 {
@@ -18,29 +18,29 @@ class InterfaceB
 
     /**
      * @brief Set the Member 1 object
-     * 
-     * @param arg 
+     *
+     * @param arg
      */
     void setMember_1(unsigned short arg);
 
     /**
      * @brief Set the Member 2 object
-     * 
-     * @param arg 
+     *
+     * @param arg
      */
     void setMember_2(float arg);
 
     /**
      * @brief Set the Member 3 object
-     * 
-     * @param arg 
+     *
+     * @param arg
      */
     void setMember_3(double arg);
 
     /**
      * @brief Get the Member 3 object
-     * 
-     * @return double 
+     *
+     * @return double
      */
     double getMember_3();
 
@@ -60,9 +60,9 @@ class InterfaceB
 
     /**
      * @var Some documentation related to m_Member_3. Th "deprecated" tag allows the customer to trace when this member was withdrawn.
-     * 
+     *
      */
-    double m_Member_3;
+    bool m_Member_3;
 };
 
 #endif

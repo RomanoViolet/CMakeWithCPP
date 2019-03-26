@@ -2,10 +2,11 @@
 ## This document described sample software requirements for the application for computing Logic *l*.
 
 ### Requirements towards Interface A
+
 Requirement ID | Requirement | Date  | Notes | Approvals
 ---------------|-------------|-------|-------|----------
-R-001 |/
-The interface shall accept an 8-bit unsigned data stream which provides sensed brightness in the range 0-255. | \\
-26 January 2018 |/
-Implemented on 26 March 2018 |/
-Alexander J., SW-Architect
+R-001 |The interface shall accept an 8-bit unsigned data stream which provides sensed brightness in the range 0-255. | 26 January 2018 |Implemented on 26 March 2018 |Alexander J., SW-Architect  
+  |   |   |   |  
+R-002 |The interface shall accept the sensed curvature of the road in $$\frac{rad}{s}$$. The curvature is provided as a floating point number. | 26 January 2018 |Implemented on 23 February 2018 |Alexander J., SW-Architect; Sandra H, Function Developer
+  |   |   |   |
+R-003 | The interface shall accept the steering-angle in $$rad$$. The steering angle is provided as a double.  | 14 January 2018  | Deprecated in March 2018 in v 1.0 of the interface  | Alexander J., SW-Architect. 
