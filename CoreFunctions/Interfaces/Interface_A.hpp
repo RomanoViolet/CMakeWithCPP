@@ -15,29 +15,32 @@ class InterfaceA
      * @brief Construct a new Interface A object. Members are intialized to random values, including a deprecated interface.
      * 
      */
-    InterfaceA() : m_Member_1(1U), m_Member_2(3.4F), m_Member_3(3.4)
+    InterfaceA() : brightness(1U), curvature(0.0F), steeringAngle(0.01)
     {
     }
     ~InterfaceA() = default;
 
     /**
-     * @var Some documentation related to m_Member_1. The "introduced" tag allows a customer to trace when a change to the interface was applied.
+     * @var Some documentation related to brightness. The "introduced" tag allows a customer to trace when a change to the interface was applied.
+     * @details brightness is received in the unit lumens
      * @introduced March 2018
+     * @requirement InterfaceA:R-001.
      */
-    unsigned short m_Member_1;
+    unsigned short brightness;
 
     /**
-     * @var Some documentation related to m_Member_2. The "introduced" tag allows a customer to trace when a change to the interface was applied.
-     * @introduced March 2018
+     * @var Some documentation related to curvature in \f$ \frac{rad}{s} \f$. The "introduced" tag allows a customer to trace when a change to the interface was applied.
+     * @introduced February 2018
+     * @requirement InterfaceA:R-002
      */
 
-    float m_Member_2;
+    float curvature;
 
     /**
-     * @var Some documentation related to m_Member_3. Th "deprecated" tag allows the customer to trace when this member was withdrawn.
-     * 
+     * @var Some documentation related to steering angle in the unit of \f$ rad\f$. Th "deprecated" tag allows the customer to trace when this member was withdrawn.
+     * @requirement InterfaceA:R-003
      */
-    [[deprecated]] double m_Member_3;
+    [[deprecated]] double steeringAngle;
 };
 
 #endif

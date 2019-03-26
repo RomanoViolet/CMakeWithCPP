@@ -11,58 +11,68 @@
 class InterfaceB
 {
   public:
-    InterfaceB() : m_Member_1(0U), m_Member_2(1.4F), m_Member_3(9.8)
+    InterfaceB() : lampTilt(0U), roadInclination(1.4F), isIntelligentLightingRequested(false)
     {
     }
     ~InterfaceB() = default;
 
     /**
-     * @brief Set the Member 1 object
-     *
+     * @brief Set the lampTilt
+     * @introduced February 2018
+     * @requirement InterfaceB:R-001
      * @param arg
      */
-    void setMember_1(unsigned short arg);
+    void setLampTilt(unsigned short arg);
 
     /**
-     * @brief Set the Member 2 object
+     * @brief Set the roadInclination
+     * @introduced February 2018
+     * @requirement InterfaceB-R002
      *
      * @param arg
      */
-    void setMember_2(float arg);
+    void setroadInclination(float arg);
 
     /**
-     * @brief Set the Member 3 object
-     *
-     * @param arg
+     * @brief Set the isIntelligentLightingRequested
+     * @introduced January 2018
+     * @requirement InterfaceB-R003
+     * @param binaryChoice
+     * @warning The requirement is under discussion, and this interface may be withdrawn following the discussion.
      */
-    void setMember_3(double arg);
+    void setIsIntelligentLightingRequested(bool binaryChoice);
 
     /**
      * @brief Get the Member 3 object
-     *
-     * @return double
+     * @requirement InterfaceB-R004
+     * @warning The requirement is under discussion, and this interface may be withdrawn following the discussion.
+     * @return bool
      */
-    double getMember_3();
+    bool getIsIntelligentLightingRequested();
 
   private:
     /**
-     * @var Some documentation related to m_Member_1. The "introduced" tag allows a customer to trace when a change to the interface was applied.
-     * @introduced December 2018
+     * @var Some documentation related to lampTilt. The "introduced" tag allows a customer to trace when a change to the interface was applied.
+     * @introduced February 2018
+     * @requirement: R-001
      */
-    unsigned short m_Member_1;
+    unsigned short lampTilt;
 
     /**
      * @var Some documentation related to m_Member_2. The "introduced" tag allows a customer to trace when a change to the interface was applied.
-     * @introduced March 2018
+     * @introduced February 2018
+     * @requirement R-002
      */
 
-    float m_Member_2;
+    float roadInclination;
 
     /**
      * @var Some documentation related to m_Member_3. Th "deprecated" tag allows the customer to trace when this member was withdrawn.
-     *
+     * @introduced January 2018
+     * @requirement InterfaceB:R-003
+     * @warning The requirement is under discussion, and this parameter may be withdrawn following the discussion.
      */
-    bool m_Member_3;
+    bool isIntelligentLightingRequested;
 };
 
 #endif
