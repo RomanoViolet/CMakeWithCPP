@@ -9,4 +9,4 @@ R-002 |The component will provide an output port of type `InterfaceB` | 3 March 
   |   |   |   |
 R-003 | The component will provide a publically accessible method `compute` which will run the business logic inside the component.  | 3 March 2018  |   Implemented on 26 March 2018 | Juliano H., Function Developer
   |   |   |   |
-R-004 | The busines logic computes $$`InterfaceB::outputPort` \leftarrow \mathbb{f}(`InterfaceA::inputPort`)$$.  | 3 March 2018  |   Implemented on 26 March 2018 | Juliano H., Function Developer
+R-004 | The busines logic computes $$`InterfaceB::outputPort` \leftarrow \mathit{f}(`InterfaceA::inputPort`)$$.  | 3 March 2018  |   Implemented on 26 March 2018 | Juliano H., Function Developer

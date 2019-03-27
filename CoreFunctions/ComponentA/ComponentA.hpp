@@ -16,6 +16,7 @@ class ComponentA
     /**
      * @brief A transport logic can directly write into inputPort with values to be used for computation.
      * @introduced March 2018
+     * @requirement ComponentA:R-001
      */
     InterfaceA inputPort;
 
@@ -23,11 +24,14 @@ class ComponentA
      * @brief The outputPort communicates data with other components.
      * @details The set'ter is used by ComponentA whereas get'ter is used by the customer.
      * @introduced March 2019
+     * @requirement ComponentA:R-002
      */
     InterfaceB outputPort;
 
     /**
      * @brief A publically accessible method used by the customer to trigger a computation \f$ \text{outputPort} \leftarrow \mathit{f}(\text{inputPort}) \f$
+     * @introduced March 2018
+     * @requirement ComponentA:R-003
      */
     void compute();
 
