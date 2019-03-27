@@ -5,14 +5,14 @@ include(ExternalProject)
 include(
 ${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/BuildFancySquareRoot.cmake)
 
-#set (FancySquareRootWorkingDirectory ${CMAKE_CURRENT_BINARY_DIR}/Downloads/FancySquareRoot)
+set (FancySquareRootWorkingDirectory ${CMAKE_CURRENT_BINARY_DIR}/Downloads/FancySquareRoot)
 
 function(getFancySquareRoot)
 
   #set_directory_properties(PROPERTIES EP_BASE ${CMAKE_CURRENT_BINARY_DIR}/ExternalSources)
   externalproject_add(FancySquareRoot
                       PREFIX
-                      ${CMAKE_CURRENT_BINARY_DIR}/Downloads #top level directory in which the repository will be cloned.
+                      ${FancySquareRootWorkingDirectory} #top level directory in which the repository will be cloned.
 
                       #GIT_REPOSITORY
                       #https://github.com/RomanoViolet/FancySquareRoot.git
@@ -39,13 +39,13 @@ function(getFancySquareRoot)
                       ""
 
                       SOURCE_DIR
-                      ${CMAKE_CURRENT_BINARY_DIR}/Downloads/src/FancySquareRoot
+                      ${FancySquareRootWorkingDirectory}/src/FancySquareRoot
 
                       INSTALL_DIR
                       ${SOURCE_DIR}/bin
 
                       CONFIGURE_COMMAND #Explicitly specify where to run cmake since CMake assumes that CMakeLists.txt for external project is available under ${PREFIX}/src
-                      ${CMAKE_COMMAND} ${CMAKE_CURRENT_BINARY_DIR}/Downloads/src/FancySquareRoot
+                      ${CMAKE_COMMAND} ${FancySquareRootWorkingDirectory}/src/FancySquareRoot
 
                       #COMMAND FILE( MAKE_DIRECTORY "${SOURCE_DIR}/build" )
                       #COMMAND "${CMAKE_COMMAND} ${CMAKE_CURRENT_BINARY_DIR}/Downloads/src/FancySquareRoot --build"
@@ -57,7 +57,7 @@ function(getFancySquareRoot)
                       #${SOURCE_DIR}/build
 
                       BUILD_BYPRODUCTS
-                      ${CMAKE_CURRENT_BINARY_DIR}/Downloads/src/FancySquareRoot-build/libFancySquareRoot.a
+                      ${FancySquareRootWorkingDirectory}/src/FancySquareRoot-build/libFancySquareRoot.a
 
                     INSTALL_COMMAND
                     ""
