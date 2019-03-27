@@ -1,7 +1,6 @@
 # Software Requirements Document
-## This document described sample software requirements for the application for computing Logic *m*.
+## This document holds the software requirements towards `InterfaceB`.
 
-### Requirements towards Interface B
 
 Requirement ID | Requirement | Date  | Notes | Approvals
 ---------------|-------------|-------|-------|----------

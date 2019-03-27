@@ -1,7 +1,5 @@
 # Software Requirements Document
-## This document described sample software requirements for the application for computing Logic *l*.
-
-### Requirements towards Interface A
+## This document holds the software requirements towards `InterfaceA`.
 
 Requirement ID | Requirement | Date  | Notes | Approvals
 ---------------|-------------|-------|-------|----------
