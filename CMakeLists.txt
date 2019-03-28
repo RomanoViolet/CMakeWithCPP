@@ -38,6 +38,7 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/GetFancySquareRoot.cmake)
 # Or, the dependency is not hosted in any git-like repository, but some proprietary internal storage.
 # Therefore, the owner of this project decides to hard-copy necessary parts in this repository.
 # The copy must be updated regularly.
+# Additionally. it is assumed that the LegacyDependency is written in C-99 language standard.
 include(
 ${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/ProvideLegacyDependency.cmake)
 
@@ -78,19 +79,28 @@ setglobalvariables(FancySquareRoot_Commit_Hash
 # DemoApplication. This library is sourced from another repository.
 getfancysquareroot()
 
+# Provides the legacy-dependency required for the DemoApplication. See the comment on legacy-dependency above.
+# It is assumed that the dependency is part of this repository. See notes the legacy dependency above.
+# Essentially, the function demonstrates a between ExternalProject and native (owned by this project) source code.
+# The dependency is stored in a folder "LegacyDependency" but it must be moved to a  different location as expected by the
+# existing source code. In this example, the "LegacyDependency" will be moved to a (created-at-buildtime) folder "${PROJECT_SOURCE_DIR}/ThirdPartySources/"
+# It is assumed that the LegacyDependency is not "CMake-friendly", i.e., does not contain any CMakeLists.txt file.
+ProvideLegacyDependency()
+
+# Build DemoApplication as a library, but is not yet linked to external dependencies, as FancySquareRoot library
+#buildDemoApplicationlibrary()
 
 # Debug step
 add_custom_target(
                     DebugTarget
-                    Depends FancySquareRoot
+                    DEPENDS CopyLegacyDependency
+                    COMMAND "ls"
                     COMMENT "Check whether the custom square root download and build worked"
                   )
 
-# Provides the legacy-dependency required for the DemoApplication. See the comment on legacy-dependency above.
-#ProvideLegacyDependency()
 
-# Build DemoApplication as a library, but is not yet linked to external dependencies, as FancySquareRoot library
-#buildDemoApplicationlibrary()
+
+
 
 # Install VMC into a local prefix so that it can be offered for "find_package"
 #installvmclocally(Location "${PROJECT_SOURCE_DIR}/build/DemoApplicationHeaders")

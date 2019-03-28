@@ -59,8 +59,8 @@ function(getFancySquareRoot)
                       BUILD_BYPRODUCTS
                       ${FancySquareRootWorkingDirectory}/src/FancySquareRoot-build/libFancySquareRoot.a
 
-                    INSTALL_COMMAND
-                    ""
+                    INSTALL_COMMAND # Specify a blank install command, else CMake tries to install stuff into /usr/ and fails
+                      ""
                   )
 
 endfunction(getFancySquareRoot)
