@@ -5,7 +5,7 @@ function(setGlobalVariables)
   # message("Set basePathToVmc: ${PROJECT_SOURCE_DIR}")
 
   # Location of the source directory providing legacy dependencies which are built together with the DemoApplication.
-  set(LEGACY_DIR "${PROJECT_SOURCE_DIR}/../LegacyDependencies"
+  set(LEGACY_DIR "${PROJECT_SOURCE_DIR}/LegacyDependency"
       CACHE
       FORCE "LEGACY_DIR")
 

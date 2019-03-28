@@ -11,8 +11,8 @@ function(ProvideLegacyDependency)
 
   file (  GLOB_RECURSE
           FILES_TO_COPY
-          "${PROJECT_SOURCE_DIR}/LegacyDependency/*.h"
-          "${PROJECT_SOURCE_DIR}/LegacyDependency/*.c"
+          "${LEGACY_DIR}/*.h"
+          "${LEGACY_DIR}/*.c"
        )
 
    foreach( thisSourceFile ${FILES_TO_COPY} )

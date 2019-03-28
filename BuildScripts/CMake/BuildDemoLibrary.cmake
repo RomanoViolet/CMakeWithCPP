@@ -1,5 +1,5 @@
 # Convenience function to be called from the main CMakeLists.txt
-function(BuildVMCLibrary)
+function(buildDemoLibrary)
   # ------------------Add subdirectories------------------#
 
   # get the basepath to VMC. All paths are relative to this.
@@ -32,4 +32,4 @@ function(BuildVMCLibrary)
     )
 
   # target_link_libraries(VMC mom)
-endfunction(BuildVMCLibrary)
+endfunction(buildDemoLibrary)
