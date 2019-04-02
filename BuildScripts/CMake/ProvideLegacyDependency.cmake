@@ -5,20 +5,16 @@ function(ProvideLegacyDependency)
 
   # Create the folder "ThirdPartySources" inside the ${CMAKE_CURRENT_BINARY_DIR}.
   # This prevents the pollution of the current respository's structure during compile time as the ${CMAKE_CURRENT_BINARY_DIR} is understood to be temporary, and is usually ignored by the
-
-  set(PATH_TO_COPY_LEGACY_SOURCES "${CMAKE_CURRENT_BINARY_DIR}/ThirdPartySources")
   file(MAKE_DIRECTORY ${PATH_TO_COPY_LEGACY_SOURCES})
 
-  file (  GLOB_RECURSE
-          FILES_TO_COPY
-          "${LEGACY_DIR}/*.h"
-          "${LEGACY_DIR}/*.c"
-       )
+  # The custom target is always executed, if "ALL" is specified.
+  add_custom_target(LegacyFileCopyTarget ALL)
 
-   foreach( thisSourceFile ${FILES_TO_COPY} )
-     file (COPY ${thisSourceFile} DESTINATION ${PATH_TO_COPY_LEGACY_SOURCES})
-
-   endforeach()
-
+  # The copy commands wrapped in the add_custom_command which is itself attached to the LegacyFileCopy target.
+  add_custom_command(
+                      TARGET LegacyFileCopyTarget
+                      COMMAND ${CMAKE_COMMAND} -E copy ${LEGACY_DIR}/*.h ${PATH_TO_COPY_LEGACY_SOURCES}
+                      COMMAND ${CMAKE_COMMAND} -E copy ${LEGACY_DIR}/*.c ${PATH_TO_COPY_LEGACY_SOURCES}
+                    )
 
 endfunction(ProvideLegacyDependency)

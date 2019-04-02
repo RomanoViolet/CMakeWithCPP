@@ -1,35 +1,33 @@
 # Convenience function to be called from the main CMakeLists.txt
 function(buildDemoLibrary)
-  # ------------------Add subdirectories------------------#
 
-  # get the basepath to VMC. All paths are relative to this.
-  get_property(BasePathToVMC GLOBAL PROPERTY BasePathToVMC)
 
-  # Algorithms
-  add_subdirectory(${BasePathToVMC}/vmc/algorithms)
 
-  # Modules
-  add_subdirectory(${BasePathToVMC}/vmc/modules)
-
-  # Runnables
-  add_subdirectory(${BasePathToVMC}/vmc/runnables)
-
-  # ------------------Build VMC library------------------#
-  add_library(VMC
-              $<TARGET_OBJECTS:ObjLibAsket>
-              $<TARGET_OBJECTS:ObjLibHelpers>
-              $<TARGET_OBJECTS:ObjLibControllers>
-              $<TARGET_OBJECTS:ObjLibActManLatRunnable>
-              $<TARGET_OBJECTS:ObjLibVMCExecutionRunnable>
-              $<TARGET_OBJECTS:ObjLibGlueRunnable>
-              $<TARGET_OBJECTS:ObjLibMotionDriverMonitoringRunnable>
-              $<TARGET_OBJECTS:ObjVSERunnable>)
-
-  target_include_directories(
-    VMC
-    PUBLIC $<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include> # for client in
-                                                                # install mode
+    # tell CMake where to find all headers required by the sources.
+    include_directories(
+                          ${LEGACY_DIR} # so that sources can find legacy headers
+                          ${PROJECT_SOURCE_DIR}/CoreFunctions/Interfaces # Interfaces required for components
+                          ${FANCYSQUAREROOT_HEADER_DIR} # Headers related to the FancySquareRoot dependency
     )
 
-  # target_link_libraries(VMC mom)
+
+  # get the basepath to VMC. All paths are relative to this.
+  # get_property(BasePathToVMC GLOBAL PROPERTY BasePathToVMC)
+  # include c files so that the linker can find the implementations
+  # Legacy sources do not come with their CMakeLists.txt, so "add_subdirectory" is not an option
+  file( GLOB_RECURSE LEGACY_SOURCES ${LEGACY_DIR}/*.c )
+  set_source_files_properties(${LEGACY_SOURCES} PROPERTIES LANGUAGE CXX)
+
+  # Interfaces expected by Components
+  add_subdirectory(${PROJECT_SOURCE_DIR}/CoreFunctions/Interfaces)
+
+  add_library(DemoLibrary "${LEGACY_SOURCES}" )
+
+  # Link various  parts
+  target_link_libraries(
+                            DemoLibrary
+                            PUBLIC FancySquareRoot
+                    )
+
+
 endfunction(buildDemoLibrary)

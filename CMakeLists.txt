@@ -1,3 +1,4 @@
+#https://foonathan.net/blog/2016/03/03/cmake-install.html
 cmake_minimum_required(VERSION 3.10)
 
 # Verbosity
@@ -88,15 +89,15 @@ getfancysquareroot()
 ProvideLegacyDependency()
 
 # Build DemoApplication as a library, but is not yet linked to external dependencies, as FancySquareRoot library
-#buildDemoApplicationlibrary()
+buildDemoLibrary()
 
 # Debug step
-add_custom_target(
-                    DebugTarget
-                    DEPENDS CopyLegacyDependency
-                    COMMAND "ls"
-                    COMMENT "Check whether the custom square root download and build worked"
-                  )
+
+#add_custom_target(
+#                    DummyTarget
+#                    DEPENDS CopyLegacyDependency
+#                    COMMENT "Check whether the custom square root download and build worked"
+#                  )
 
 
 
