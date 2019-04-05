@@ -91,6 +91,12 @@ ProvideLegacyDependency()
 # Build DemoApplication as a library, but is not yet linked to external dependencies, as FancySquareRoot library
 buildDemoLibrary()
 
+# Install the built package locally in order to support find_package
+InstallDemoLibrary( Location "${PROJECT_SOURCE_DIR}/build/DemoLibrary"
+                    VERSION_MAJOR 0 # The version of the library is set to VERSION_MAJOR.VERSION_MINOR
+                    VERSION_MINOR 9
+                )
+
 # Debug step
 
 #add_custom_target(
@@ -98,17 +104,6 @@ buildDemoLibrary()
 #                    DEPENDS CopyLegacyDependency
 #                    COMMENT "Check whether the custom square root download and build worked"
 #                  )
-
-
-
-
-
-# Install VMC into a local prefix so that it can be offered for "find_package"
-#installvmclocally(Location "${PROJECT_SOURCE_DIR}/build/DemoApplicationHeaders")
-
-# Make VMC available to customers
-#exportDemoApplication()
-
 # ------------------Testing-----------------
 # Build and Run all Google Tests
-#buildandrunallDemoApplicationtests()
+buildandrunallDemoApplicationtests()

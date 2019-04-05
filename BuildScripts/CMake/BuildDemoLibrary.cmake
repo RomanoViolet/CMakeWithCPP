@@ -18,10 +18,13 @@ function(buildDemoLibrary)
   file( GLOB_RECURSE LEGACY_SOURCES ${LEGACY_DIR}/*.c )
   set_source_files_properties(${LEGACY_SOURCES} PROPERTIES LANGUAGE CXX)
 
+  #Sources related to Components A and B
+  file( GLOB_RECURSE DEMOLIBRARY_SOURCES ${PROJECT_SOURCE_DIR}/CoreFunctions*.cpp )
+
   # Interfaces expected by Components
   add_subdirectory(${PROJECT_SOURCE_DIR}/CoreFunctions/Interfaces)
 
-  add_library(DemoLibrary "${LEGACY_SOURCES}" )
+  add_library(DemoLibrary "${LEGACY_SOURCES}" "${DEMOLIBRARY_SOURCES}")
 
   # Link various  parts
   target_link_libraries(

@@ -1,39 +1,75 @@
-function(installVMCLocally)
+#https://pabloariasal.github.io/2018/02/19/its-time-to-do-cmake-right/
+#https://rix0r.nl/blog/2015/08/13/cmake-guide/
+#https://www.slideshare.net/DanielPfeifer1/cmake-48475415
+#https://cliutils.gitlab.io/modern-cmake/chapters/install/installing.html
+function(InstallDemoLibrary)
 
-  # Silence the gazillion "installing..." message lines
+  # The following custom command will cause the install to always execute after the build.
+  # Else, "make install" needs to be called separately.
+  # https://stackoverflow.com/a/29712310
+  add_custom_command(
+    TARGET DemoLibrary
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target install
+    )
+
+  # Suppress file-by-file install step notifications
   set(CMAKE_INSTALL_MESSAGE "NEVER")
 
   # Get the user supplied install location.
   set(InstallLocation "${ARGV1}")
-  file(MAKE_DIRECTORY "${InstallLocation}")
 
-  # Define install paths
-  set(include_dest "${InstallLocation}/include")
-  set(main_lib_dest "${InstallLocation}/lib")
-  set(lib_dest ${main_lib_dest}/${BuildType})
+  # Set the version of the library
+  # Adapted from https://foonathan.net/blog/2016/03/03/cmake-install.html
+  set(  DemoLibrary_VERSION_MAJOR "${ARGV3}"
+        CACHE
+        STRING "Major Version"
+        FORCE )
 
-  # Install VMC interfaces
-  install(DIRECTORY ${PROJECT_SOURCE_DIR}/inc/vmc_interfaces
-          DESTINATION ${include_dest})
-  # Install Runnables interfaces
-  file(GLOB_RECURSE RUNNABLE_HEADERS ${PROJECT_SOURCE_DIR}/vmc/runnables/*.hpp)
-  install(FILES ${RUNNABLE_HEADERS} DESTINATION ${include_dest}/vmc_runnables)
+  message("DemoLibrary_VERSION_MAJOR: ${DemoLibrary_VERSION_MAJOR}")
 
-  # Install Controllers interfaces
-  file(GLOB_RECURSE CONTROLLER_HEADERS
-                    ${PROJECT_SOURCE_DIR}/vmc/modules/controllers/*.hpp)
-  install(FILES ${CONTROLLER_HEADERS}
-          DESTINATION ${include_dest}/vmc/modules/controllers)
-  # Install Helpers interfaces
-  file(
-    GLOB_RECURSE
-      HELPER_HEADERS
-      ${PROJECT_SOURCE_DIR}/vmc/modules/helpers/CorridorMonitoring/*.hpp)
-  install(FILES ${HELPER_HEADERS}
-          DESTINATION ${include_dest}/vmc/modules/helpers/CorridorMonitoring)
-  file(GLOB_RECURSE HELPER_HEADERS
-                    ${PROJECT_SOURCE_DIR}/vmc/modules/helpers/DSMAdapter/*.hpp)
-  install(FILES ${HELPER_HEADERS}
-          DESTINATION ${include_dest}/vmc/modules/helpers/DSMAdapter)
+  set(  DemoLibrary_VERSION_MINOR "${ARGV5}"
+        CACHE
+        STRING "Minor Version"
+        FORCE )
 
-endfunction(installVMCLocally)
+  message("DemoLibrary_VERSION_MINOR: ${DemoLibrary_VERSION_MINOR}")
+
+  set(  DemoLibrary_VERSION ${DemoLibrary_VERSION_MAJOR}.${DemoLibrary_VERSION_MINOR}
+        CACHE
+        STRING "version"
+        FORCE )
+
+  message("DemoLibrary_VERSION: ${DemoLibrary_VERSION}")
+
+  # paths to include/ and library
+  set(DemoLibrary_IncPath "${InstallLocation}-${DemoLibrary_VERSION}/inc")
+  set(DemoLibrary_LibPath "${InstallLocation}-${DemoLibrary_VERSION}/lib")
+
+  message("Location of Install: ${InstallLocation}-${DemoLibrary_VERSION}")
+
+  file(MAKE_DIRECTORY "${DemoLibrary_IncPath}")
+  file(MAKE_DIRECTORY "${DemoLibrary_LibPath}")
+
+  # Install the DemoLibrary
+  # Install does not like targets created from another file: https://stackoverflow.com/questions/34443128/cmake-install-targets-in-subdirectories
+  install(  TARGETS DemoLibrary
+            EXPORT DemoLibrary-export
+            LIBRARY DESTINATION "${DemoLibrary_LibPath}"
+            ARCHIVE DESTINATION "${DemoLibrary_LibPath}")
+
+  install(  EXPORT DemoLibrary-export
+            FILE DemoLibraryTargets.cmake
+            NAMESPACE DL::
+            DESTINATION "${DemoLibrary_LibPath}")
+
+  # Make the header files available
+  # Collect the list of header files to be exported
+  file( GLOB_RECURSE DemoLibraryHeaders ${PROJECT_SOURCE_DIR}/CoreFunctions/*.hpp )
+  install(  FILES ${DemoLibraryHeaders}
+            DESTINATION "${DemoLibrary_IncPath}")
+
+  #export(TARGETS DemoLibrary NAMESPACE DL:: FILE DemoLibraryTargets.cmake)
+  #export(PACKAGE DemoLibrary)
+
+endfunction(InstallDemoLibrary)

@@ -1,6 +1,8 @@
-include(GoogleTest)
+# Do not assume that the Google Test framework is preinstalled. Instead, clone the library, and buiid it locally.
 
 function(BuildGoogleTests)
+
+
 
   # Find the Google Test package
   find_package(GTest REQUIRED)
