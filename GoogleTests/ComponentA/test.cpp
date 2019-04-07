@@ -11,7 +11,7 @@
 TEST(ComponentA, R_001)
 {
     /**
-     * @brief Tests requirement ComponentA:R-001
+     * @brief Tests requirement ComponentA-001
      */
     ComponentA c;
 
@@ -25,7 +25,7 @@ TEST(ComponentA, R_001)
 TEST(ComponentA, R_002)
 {
     /**
-     * @brief Tests requirement ComponentA:R-002
+     * @brief Tests requirement ComponentA-002
      */
     ComponentA c;
 
@@ -40,7 +40,7 @@ TEST(ComponentA, R_002)
 TEST(ComponentA, R_003)
 {
     /**
-     * @brief Tests requirement ComponentA:R-003
+     * @brief Tests requirement ComponentA-003
      */
     class MockComponentA : public ComponentA 
     {
@@ -58,7 +58,7 @@ TEST(ComponentA, R_003)
 TEST(ComponentA, R_004)
 {
     /**
-     * @brief Tests requirement ComponentA:R-004
+     * @brief Tests requirement ComponentA-004
      */
 
     ComponentA c;

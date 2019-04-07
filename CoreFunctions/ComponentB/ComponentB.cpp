@@ -14,7 +14,7 @@
 
 /**
  * @brief Computes \f$ \mathit{f}(\text{InterfaceB::inputPort}) \f$
- * @requirement ComponentB:R-003
+ * @requirement ComponentB-003
  */
 
 void ComponentB::compute()

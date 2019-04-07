@@ -10,16 +10,16 @@
 TEST(InterfaceB, R_001)
 {
     /**
-     * @brief Tests requirement InterfaceB:R-001
+     * @brief Tests requirement InterfaceB-001
      */
 
     // Instantiate the type
     InterfaceB InterfaceB;
 
-    // InterfaceB-R001 expects an unsigned 8-bit data stream. From the description of InterfaceB, the member that must satisfy
+    // InterfaceB-001 expects an unsigned 8-bit data stream. From the description of InterfaceB, the member that must satisfy
     // the requirement is `InterfaceB::brightness`
     
-    // declare a variable that has the type expected by the requirement InterfaceB::R-001
+    // declare a variable that has the type expected by the requirement InterfaceB-001
     unsigned short referenceType;
 
     // set the value of lamp tilt
@@ -37,7 +37,7 @@ TEST(InterfaceB, R_001)
 TEST(InterfaceB, R_002)
 {
     /**
-     * @brief Tests requirement InterfaceB:R-002
+     * @brief Tests requirement InterfaceB-002
      */
 
     // Instantiate the type
@@ -45,7 +45,7 @@ TEST(InterfaceB, R_002)
 
     // InterfaceB-R002 expects to set the current inclination of the road, currently provided by InterfaceB::setroadInclination
 
-    // declare a variable that has the type expected by the requirement InterfaceB::R-002
+    // declare a variable that has the type expected by the requirement InterfaceB-002
     float referenceType;
 
     // set the value of lamp tilt
@@ -62,7 +62,7 @@ TEST(InterfaceB, R_002)
 TEST(InterfaceB, R_003)
 {
     /**
-     * @brief Tests requirement InterfaceB:R-003
+     * @brief Tests requirement InterfaceB-003
      */
 
     // Instantiate the type
@@ -70,7 +70,7 @@ TEST(InterfaceB, R_003)
 
     // InterfaceB-R003 expects to set intelligent lighting, currently provided by InterfaceB::setIsIntelligentLightingRequested
 
-    // declare a variable that has the type expected by the requirement InterfaceB::R-003
+    // declare a variable that has the type expected by the requirement InterfaceB-003
     bool referenceType;
 
     // set the intelligent lighting request

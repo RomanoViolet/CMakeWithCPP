@@ -10,7 +10,7 @@
 TEST(InterfaceA, R_001)
 {
     /**
-     * @brief Tests requirement InterfaceA:R-001
+     * @brief Tests requirement InterfaceA-001
      */
 
     // Instantiate the type
@@ -19,7 +19,7 @@ TEST(InterfaceA, R_001)
     // InterfaceA-R001 expects an unsigned 8-bit data stream. From the description of InterfaceA, the member that must satisfy
     // the requirement is `InterfaceA::brightness`
     
-    // declare a variable that has the type expected by the requirement InterfaceA::R-001
+    // declare a variable that has the type expected by the requirement InterfaceA-001
     unsigned short referenceType;
 
 
@@ -31,16 +31,16 @@ TEST(InterfaceA, R_001)
 TEST(InterfaceA, R_002)
 {
     /**
-     * @brief Tests requirement InterfaceA:R-002
+     * @brief Tests requirement InterfaceA-002
      */
 
     // Instantiate the type
     InterfaceA interfaceA;
 
-    // InterfaceA-R002 expects a floating point number representing the sensed curvature of the road. 
+    // InterfaceA-002 expects a floating point number representing the sensed curvature of the road. 
     // This requirement is satisfied by the member InterfaceA::curvature
     
-    // declare a variable that has the type expected by the requirement InterfaceA::R-002
+    // declare a variable that has the type expected by the requirement InterfaceA-002
     float referenceType;
 
 
@@ -52,16 +52,16 @@ TEST(InterfaceA, R_002)
 TEST(InterfaceA, R_003)
 {
     /**
-     * @brief Tests requirement InterfaceA:R-003
+     * @brief Tests requirement InterfaceA-003
      */
 
     // Instantiate the type
     InterfaceA interfaceA;
 
-    // InterfaceA-R003 expects a double-type number representing the steering angle. 
+    // InterfaceA-003 expects a double-type number representing the steering angle. 
     // This requirement is satisfied by the member InterfaceA::steeringAngle
     
-    // declare a variable that has the type expected by the requirement InterfaceA::R-003
+    // declare a variable that has the type expected by the requirement InterfaceA-003
     double referenceType;
 
 

@@ -13,16 +13,18 @@ class ComponentB
     ComponentB() : inputPort() {}
 
     /**
+     * @var inputPort
      * @brief The inputPort receives data from the transport layer.
      * @introduced March 2018
-     * @requirement ComponentB:R-001
+     * @requirement ComponentB-001
      */
     InterfaceB inputPort;
 
     /**
+     * @fn compute
      * @brief A publically accessible method used by the customer to trigger a computation \f$ \text{outputPort} \leftarrow \mathit{f}(\text{inputPort}) \f$
      * @introduced March 2018
-     * @requirement ComponentA:R-002
+     * @requirement ComponentB-002
      */
     void compute();
 

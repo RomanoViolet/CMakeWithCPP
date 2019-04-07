@@ -21,24 +21,27 @@ class InterfaceA
     ~InterfaceA() = default;
 
     /**
-     * @var Some documentation related to brightness. The "introduced" tag allows a customer to trace when a change to the interface was applied.
+     * @var brightness;
+     * @brief Some documentation related to brightness. The "introduced" tag allows a customer to trace when a change to the interface was applied.
      * @details brightness is received in the unit lumens
      * @introduced March 2018
-     * @requirement InterfaceA:R-001.
+     * @requirement InterfaceA-001
      */
     unsigned short brightness;
 
     /**
-     * @var Some documentation related to curvature in \f$ \frac{rad}{s} \f$. The "introduced" tag allows a customer to trace when a change to the interface was applied.
+     * @var curvature
+     * @brief Some documentation related to curvature in \f$ \frac{rad}{s} \f$. The "introduced" tag allows a customer to trace when a change to the interface was applied.
      * @introduced February 2018
-     * @requirement InterfaceA:R-002
+     * @requirement InterfaceA-002
      */
 
     float curvature;
 
     /**
-     * @var Some documentation related to steering angle in the unit of \f$ rad\f$. Th "deprecated" tag allows the customer to trace when this member was withdrawn.
-     * @requirement InterfaceA:R-003
+     * @var steeringAngle
+     * @brief Some documentation related to steering angle in the unit of \f$ rad\f$. Th "deprecated" tag allows the customer to trace when this member was withdrawn.
+     * @requirement InterfaceA-003
      */
     [[deprecated]] double steeringAngle;
 };

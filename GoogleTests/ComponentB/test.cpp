@@ -10,7 +10,7 @@
 TEST(ComponentB, R_001)
 {
     /**
-     * @brief Tests requirement ComponentB:R-001: whether ComponentB presents an inputPort of type InterfaceB
+     * @brief Tests requirement ComponentB-001: whether ComponentB presents an inputPort of type InterfaceB
      * 
      */
     // Reference interface to compare against
@@ -25,7 +25,7 @@ TEST(ComponentB, R_001)
 TEST(ComponentB, R_002)
 {
     /**
-     * @brief Tests requirement ComponentB:R-003
+     * @brief Tests requirement ComponentB-002
      */
     class MockComponentB : public ComponentB 
     {
@@ -43,11 +43,11 @@ TEST(ComponentB, R_002)
 TEST(ComponentB, R_003)
 {
     /**
-     * @brief Tests requirement ComponentB:R-003
+     * @brief Tests requirement ComponentB-003
      * @detail This requirement is not testable since no side affect of the `compute` can be observed via the available public interface
      * @warning The test must fail until either the requirement is removed, or class ComponentB is refactored to be testable
      */
     EXPECT_TRUE(false) << "Requirement ComponentB:R-003 is not testable";
-    //EXPECT_FALSE(false) << "Requirement ComponentB:R-003 is not testable";
+    //EXPECT_FALSE(false) << "Requirement ComponentB-003 is not testable";
 
 }
