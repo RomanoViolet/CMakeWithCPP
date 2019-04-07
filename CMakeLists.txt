@@ -49,6 +49,8 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/BuildDemoLibrary.cmake)
 # Convenience functions for installing DemoApplication locally
 include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/InstallDemoApplicationLocally.cmake)
 
+# Exporting DemoApplication library so that 'find_package' will work
+include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/ExportDemoApplication.cmake)
 
 # All DemoApplication Internal tests, e.g., Google Tests
 include(
