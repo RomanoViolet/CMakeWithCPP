@@ -11,8 +11,6 @@ function(buildDemoLibrary)
   )
 
 
-  # get the basepath to VMC. All paths are relative to this.
-  # get_property(BasePathToVMC GLOBAL PROPERTY BasePathToVMC)
   # include c files so that the linker can find the implementations
   # Legacy sources do not come with their CMakeLists.txt, so "add_subdirectory" is not an option
   file( GLOB_RECURSE LEGACY_SOURCES ${LEGACY_DIR}/*.c )
