@@ -1,5 +1,5 @@
 # Get a list of all source files.
-file(GLOB_RECURSE SRC *.hpp *.inl)
+file(GLOB_RECURSE SRC *.hpp *.inl *.cpp)
 
 # Compile the interface files into a library
 add_library (Interfaces STATIC ${SRC})

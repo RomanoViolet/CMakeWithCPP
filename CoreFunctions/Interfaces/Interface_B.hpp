@@ -1,6 +1,8 @@
 #ifndef INTERFACE_B_HPP
 #define INTERFACE_B_HPP
 
+#include <gtest/gtest_prod.h>
+
 /**
  * @class InterfaceB
  * @brief This class provides a way to communicate data with components that are used to build the complete applications.
@@ -25,7 +27,7 @@ class InterfaceB
     void setLampTilt(unsigned short arg);
 
     /**
-     * @brief Set the roadInclination
+     * @brief Set the roadInclination via setroadInclination
      * @introduced February 2018
      * @requirement InterfaceB-R002
      *
@@ -34,7 +36,7 @@ class InterfaceB
     void setroadInclination(float arg);
 
     /**
-     * @brief Set the isIntelligentLightingRequested
+     * @brief Set the IsIntelligentLightingRequested via setIsIntelligentLightingRequested
      * @introduced January 2018
      * @requirement InterfaceB-R003
      * @param binaryChoice
@@ -43,7 +45,7 @@ class InterfaceB
     void setIsIntelligentLightingRequested(bool binaryChoice);
 
     /**
-     * @brief Get the Member 3 object
+     * @brief Get the getIsIntelligentLightingRequested object
      * @requirement InterfaceB-R004
      * @warning The requirement is under discussion, and this interface may be withdrawn following the discussion.
      * @return bool
@@ -52,14 +54,16 @@ class InterfaceB
 
   private:
     /**
-     * @var Some documentation related to lampTilt. The "introduced" tag allows a customer to trace when a change to the interface was applied.
+     * @var lampTilt
+     * @detail Some documentation related to lampTilt. The "introduced" tag allows a customer to trace when a change to the interface was applied.
      * @introduced February 2018
      * @requirement: R-001
      */
     unsigned short lampTilt;
 
     /**
-     * @var Some documentation related to m_Member_2. The "introduced" tag allows a customer to trace when a change to the interface was applied.
+     * @var roadInclination
+     * @detail Some documentation related to roadInclination. The "introduced" tag allows a customer to trace when a change to the interface was applied.
      * @introduced February 2018
      * @requirement R-002
      */
@@ -67,12 +71,31 @@ class InterfaceB
     float roadInclination;
 
     /**
-     * @var Some documentation related to m_Member_3. Th "deprecated" tag allows the customer to trace when this member was withdrawn.
+     * @var isIntelligentLightingRequested
+     * @detail Some documentation related to isIntelligentLightingRequested. Th "deprecated" tag allows the customer to trace when this member was withdrawn.
      * @introduced January 2018
      * @requirement InterfaceB:R-003
      * @warning The requirement is under discussion, and this parameter may be withdrawn following the discussion.
      */
     bool isIntelligentLightingRequested;
+
+    /**
+     * @brief FRIEND_TEST is a Google-Test macro used for testing private members of a class.
+     * @detail The following macro tests the setLampTilt method and the associated private member
+     */
+    FRIEND_TEST(InterfaceB, R_001);
+
+    /**
+     * @brief FRIEND_TEST is a Google-Test macro used for testing private members of a class.
+     * @detail The following macro tests the setroadInclination method and the associated private member
+     */
+    FRIEND_TEST(InterfaceB, R_002);
+
+    /**
+     * @brief FRIEND_TEST is a Google-Test macro used for testing private members of a class.
+     * @detail The following macro tests the setisIntelligentLightingRequested method and the associated private member
+     */
+    FRIEND_TEST(InterfaceB, R_003);
 };
 
 #endif

@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD 11)
 # set( CMAKE_CXX_COMPILER /usr/bin/clang++ )
 set(CXX_STANDARD_REQUIRED true)
 set(CMAKE_CXX_EXTENSIONS off)
-set(CMAKE_BUILD_TYPE "RELEASE")
+set(CMAKE_BUILD_TYPE Release)
 
 # The name of the project
 project(DemoApplication VERSION 0.1 LANGUAGES CXX)
@@ -54,7 +54,7 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/ExportDemoApplication.cma
 
 # All DemoApplication Internal tests, e.g., Google Tests
 include(
-  ${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/BuildAndRunAllDemoApplicationTests.cmake)
+  ${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/BuildAndRunAllGoogleTests.cmake)
 
 # Ensure that all tools and versions are compliant. Minimum acceptable versions
 # are speciied as key-value pairs Currently, only minimum git version is
@@ -66,7 +66,7 @@ ensuretoolcompliance(Git 2.15)
 setbuildchainspecifications(CompilerChain
                             "gcc"
                             LanguageStandard
-                            17
+                            14
                             BuildType
                             "Release")
 
@@ -74,7 +74,7 @@ setbuildchainspecifications(CompilerChain
 setglobalvariables(FancySquareRoot_Commit_Hash
                    "4cd14a67709ce89f2b04b150db615dfe5bd345bf"
                    Location_of_GoogleTests
-                   "${PROJECT_SOURCE_DIR}/gtest")
+                   "${PROJECT_SOURCE_DIR}/GoogleTests")
 
 # Get FancySquareRoot library which is required for building the
 # DemoApplication. This library is sourced from another repository.
@@ -106,4 +106,4 @@ InstallDemoLibrary( Location "${PROJECT_SOURCE_DIR}/build/DemoLibrary"
 #                  )
 # ------------------Testing-----------------
 # Build and Run all Google Tests
-buildandrunallDemoApplicationtests()
+BuildAndRunAllGoogleTests()

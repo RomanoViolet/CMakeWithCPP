@@ -10,10 +10,10 @@
   *       put the legacy functions at a path expected by sources, such as ComponentB by creating a directory structure at build time.
   *       The legacy C-sources will be compiled with a C++ compiler.
   */
-#include <ThirdPartySources/Legacy.h>
+#include <Legacy.h>
 
 /**
- * @brief Computes \f$\mathit{f}(\text{InterfaceB::inputPort})\f$
+ * @brief Computes \f$ \mathit{f}(\text{InterfaceB::inputPort}) \f$
  * @requirement ComponentB:R-003
  */
 
@@ -22,7 +22,7 @@ void ComponentB::compute()
     // do something with the input port data
     std::cout << "Component B computed: ";
     std::cout << std::boolalpha;
-    std::cout << inputPort.getIsIntelligentLightingRequested() << std::endl;..
+    std::cout << inputPort.getIsIntelligentLightingRequested() << std::endl;
 
     float a = 10.F;
     float b = 11.3F;

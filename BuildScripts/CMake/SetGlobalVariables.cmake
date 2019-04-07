@@ -42,6 +42,9 @@ function(setGlobalVariables)
         FORCE "LocationOfGoogleTests")
 
   # The name of the built FancySquareRoot library
-  set(DADDY_LIB "FancySquareRoot" CACHE FORCE "FancySquareRoot")
+  set(FancySquareRoot_LIB "FancySquareRoot" 
+        CACHE 
+        FORCE "FancySquareRoot")
+
 
 endfunction(setGlobalVariables)

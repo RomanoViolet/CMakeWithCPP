@@ -3,12 +3,12 @@ function(buildDemoLibrary)
 
 
 
-    # tell CMake where to find all headers required by the sources.
-    include_directories(
-                          ${LEGACY_DIR} # so that sources can find legacy headers
-                          ${PROJECT_SOURCE_DIR}/CoreFunctions/Interfaces # Interfaces required for components
-                          ${FANCYSQUAREROOT_HEADER_DIR} # Headers related to the FancySquareRoot dependency
-    )
+  # tell CMake where to find all headers required by the sources.
+  include_directories(
+                        ${LEGACY_DIR} # so that sources can find legacy headers
+                        ${PROJECT_SOURCE_DIR}/CoreFunctions/Interfaces # Interfaces required for components
+                        ${FANCYSQUAREROOT_HEADER_DIR} # Headers related to the FancySquareRoot dependency
+  )
 
 
   # get the basepath to VMC. All paths are relative to this.
@@ -25,6 +25,7 @@ function(buildDemoLibrary)
   add_subdirectory(${PROJECT_SOURCE_DIR}/CoreFunctions/Interfaces)
 
   add_library(DemoLibrary "${LEGACY_SOURCES}" "${DEMOLIBRARY_SOURCES}")
+  set_target_properties(DemoLibrary PROPERTIES LINKER_LANGUAGE CXX)
 
   # Link various  parts
   target_link_libraries(

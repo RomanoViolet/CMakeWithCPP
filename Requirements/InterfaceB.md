@@ -10,4 +10,3 @@ R-002 |The interface shall provide a mechanism to set the current inclination of
   |   |   |   |
 R-003 | The interface shall provide a mechanism to set (on,  off) whether intelligent lighting feature is to be turned on.  | 8 January 2018  | Requirement Under Discussion, see notes <a href="www.google.com" target="_blank">here</a> | Alexander J., SW-Architect.
   |   |   |   |
-R-004 | The interface shall provide a mechanism to read (on,  off) whether intelligent lighting feature is active.  | 8 January 2018  | Requirement Under Discussion, see notes <a href="www.google.com" target="_blank">here</a> | Alexander J., SW-Architect.

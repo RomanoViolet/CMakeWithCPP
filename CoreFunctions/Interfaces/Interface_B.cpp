@@ -5,22 +5,22 @@
  * 
  */
 
-void InterfaceB::setMember_1(unsigned short arg)
+void InterfaceB::setLampTilt(unsigned short arg)
 {
-    this->m_Member_1 = arg;
+    this->lampTilt = arg;
 }
 
-void InterfaceB::setMember_2(float arg)
+void InterfaceB::setroadInclination(float arg)
 {
-    this->m_Member_2 = arg;
+    this->roadInclination = arg;
 }
 
-void InterfaceB::setMember_3(double arg)
+void InterfaceB::setIsIntelligentLightingRequested(bool arg)
 {
-    this->setMember_3 = arg;
+    this->isIntelligentLightingRequested = arg;
 }
 
-double InterfaceB::getMember_3()
+bool InterfaceB::getIsIntelligentLightingRequested()
 {
-    return (this->m_Member_3);
+    return (this->isIntelligentLightingRequested);
 }

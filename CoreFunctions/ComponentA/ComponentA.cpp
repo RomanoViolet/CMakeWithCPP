@@ -1,7 +1,7 @@
 #include "ComponentA.hpp"
 
 /**
- * @brief Computes \f$\text{InterfaceB::outputPort} \leftarrow \mathit{f}(\text{InterfaceA::inputPort})\f$
+ * @brief Computes \f$ \text{InterfaceB::outputPort} \leftarrow \mathit{f}(\text{InterfaceA::inputPort}) \f$
  * @requirement ComponentA:R-004
  * 
  */
@@ -22,6 +22,5 @@ void ComponentA::compute()
     this->outputPort.setLampTilt(setLampTilt);
     this->outputPort.setroadInclination(roadInclination);
     this->outputPort.setIsIntelligentLightingRequested(isIntelligentLightingRequested);
-
 
 }

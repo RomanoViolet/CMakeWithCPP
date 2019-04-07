@@ -1,3 +1,11 @@
 /build
 
 \.vscode/
+
+Documentation/html/
+
+Documentation/latex/
+
+Documentation/xml/
+
+xml/
