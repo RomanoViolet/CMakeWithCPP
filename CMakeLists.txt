@@ -1,23 +1,8 @@
 #https://foonathan.net/blog/2016/03/03/cmake-install.html
 cmake_minimum_required(VERSION 3.10)
 
-# Verbosity
-set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_RULE_MESSAGES ON)
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-# General flags
-set(CMAKE_CXX_STANDARD 11)
-# set( CMAKE_CXX_COMPILER /usr/bin/clang++ )
-set(CXX_STANDARD_REQUIRED true)
-set(CMAKE_CXX_EXTENSIONS off)
-set(CMAKE_BUILD_TYPE Release)
-
 # The name of the project
 project(DemoApplication VERSION 0.1 LANGUAGES CXX)
-
-# Include CMake standard libaries
-# include(${CMAKE_ROOT}/Modules/ExternalProject.cmake)
-include(ExternalProject)
 
 # Setting build chain preferences
 include(
@@ -49,9 +34,6 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/BuildDemoLibrary.cmake)
 # Convenience functions for installing DemoApplication locally
 include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/InstallDemoApplicationLocally.cmake)
 
-# Exporting DemoApplication library so that 'find_package' will work
-include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/ExportDemoApplication.cmake)
-
 # All DemoApplication Internal tests, e.g., Google Tests
 include(
   ${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/BuildAndRunAllGoogleTests.cmake)
@@ -64,11 +46,11 @@ ensuretoolcompliance(Git 2.15)
 # Supply arguments as key-value pairs CompilerChain: gcc | llvm | msvc | mingw
 # LanguageStandard: 11 | 14 | 17 BuildType: Debug | Release
 setbuildchainspecifications(CompilerChain
-                            "gcc"
+                            "llvm"
                             LanguageStandard
-                            14
+                            11
                             BuildType
-                            "Release")
+                            "Debug")
 
 # Set Global variables such as the commit-hash of the FancySquareRoot library that must be used.
 setglobalvariables(FancySquareRoot_Commit_Hash

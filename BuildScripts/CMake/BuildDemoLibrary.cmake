@@ -11,12 +11,11 @@ function(buildDemoLibrary)
   )
 
 
-  # get the basepath to VMC. All paths are relative to this.
-  # get_property(BasePathToVMC GLOBAL PROPERTY BasePathToVMC)
   # include c files so that the linker can find the implementations
   # Legacy sources do not come with their CMakeLists.txt, so "add_subdirectory" is not an option
   file( GLOB_RECURSE LEGACY_SOURCES ${LEGACY_DIR}/*.c )
-  set_source_files_properties(${LEGACY_SOURCES} PROPERTIES LANGUAGE CXX)
+  #set_source_files_properties(${LEGACY_SOURCES} PROPERTIES LANGUAGE CXX)
+  set_property(SOURCE "${LEGACY_SOURCES}" PROPERTY LANGUAGE CXX)
 
   #Sources related to Components A and B
   file( GLOB_RECURSE DEMOLIBRARY_SOURCES ${PROJECT_SOURCE_DIR}/CoreFunctions*.cpp )
@@ -25,7 +24,7 @@ function(buildDemoLibrary)
   add_subdirectory(${PROJECT_SOURCE_DIR}/CoreFunctions/Interfaces)
 
   add_library(DemoLibrary "${LEGACY_SOURCES}" "${DEMOLIBRARY_SOURCES}")
-  set_target_properties(DemoLibrary PROPERTIES LINKER_LANGUAGE CXX)
+  set_target_properties(DemoLibrary PROPERTIES LINKER_LANGUAGE "CXX")
 
   # Link various  parts
   target_link_libraries(

@@ -26,27 +26,23 @@ function(InstallDemoLibrary)
         STRING "Major Version"
         FORCE )
 
-  message("DemoLibrary_VERSION_MAJOR: ${DemoLibrary_VERSION_MAJOR}")
-
+  
   set(  DemoLibrary_VERSION_MINOR "${ARGV5}"
         CACHE
         STRING "Minor Version"
         FORCE )
 
-  message("DemoLibrary_VERSION_MINOR: ${DemoLibrary_VERSION_MINOR}")
 
   set(  DemoLibrary_VERSION ${DemoLibrary_VERSION_MAJOR}.${DemoLibrary_VERSION_MINOR}
         CACHE
         STRING "version"
         FORCE )
 
-  message("DemoLibrary_VERSION: ${DemoLibrary_VERSION}")
 
   # paths to include/ and library
   set(DemoLibrary_IncPath "${InstallLocation}-${DemoLibrary_VERSION}/inc")
   set(DemoLibrary_LibPath "${InstallLocation}-${DemoLibrary_VERSION}/lib")
 
-  message("Location of Install: ${InstallLocation}-${DemoLibrary_VERSION}")
 
   file(MAKE_DIRECTORY "${DemoLibrary_IncPath}")
   file(MAKE_DIRECTORY "${DemoLibrary_LibPath}")
@@ -69,7 +65,5 @@ function(InstallDemoLibrary)
   install(  FILES ${DemoLibraryHeaders}
             DESTINATION "${DemoLibrary_IncPath}")
 
-  #export(TARGETS DemoLibrary NAMESPACE DL:: FILE DemoLibraryTargets.cmake)
-  #export(PACKAGE DemoLibrary)
 
 endfunction(InstallDemoLibrary)

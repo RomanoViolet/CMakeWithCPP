@@ -2,10 +2,6 @@
 
 include(ExternalProject)
 
-# Convenience function to build FancySquareRoot
-include(
-${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/BuildFancySquareRoot.cmake)
-
 set (FancySquareRootWorkingDirectory ${CMAKE_CURRENT_BINARY_DIR}/Downloads/FancySquareRoot)
 
 function(getFancySquareRoot)

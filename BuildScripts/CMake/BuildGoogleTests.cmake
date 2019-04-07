@@ -25,7 +25,7 @@ ExternalProject_Add(
   file(MAKE_DIRECTORY ${GMOCK_INCLUDE_DIRS})
   
   ExternalProject_Get_Property(googletest binary_dir)
-  message("From BuildGoogleTests: binary_dir: ${binary_dir}")
+  
 
   set(GTEST_LIBRARY_PATH ${binary_dir}/lib/${CMAKE_FIND_LIBRARY_PREFIXES}gtest.a)
   set(GTEST_LIBRARY gtest)
@@ -85,25 +85,9 @@ ExternalProject_Add(
       "INTERFACE_INCLUDE_DIRECTORIES" "${GMOCK_INCLUDE_DIRS}")
   add_dependencies(${GMOCK_MAIN_LIBRARY} ${GTEST_LIBRARY})
 
-  #find_package(GTest REQUIRED)
-  #include_directories(${GTEST_INCLUDE_DIR})
-  #enable_testing()
-
-  
-  #get_property(BasePathToVMC GLOBAL PROPERTY BasePathToVMC)
-
-  
-  #get_property(LocationOfGoogleTests GLOBAL PROPERTY LocationOfGoogleTests)
-
   add_custom_target(AllGoogleTests ALL DEPENDS ${UNIT_TEST_TARGETS})
+   
+  add_subdirectory("${LocationOfGoogleTests}")
 
-  #if(BUILD_TESTING)
-
-    
-    add_subdirectory("${LocationOfGoogleTests}")
-    
-    #add_subdirectory("${LocationOfGoogleTests}/VSE")
-
-  #endif(BUILD_TESTING)
 
 endfunction(BuildGoogleTests)

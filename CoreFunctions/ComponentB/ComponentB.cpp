@@ -1,5 +1,6 @@
 #include "ComponentB.hpp"
-#include <iostream>
+#include <iostream> 
+#include <MyFancySquareRoot.hpp>
 
 /**
   *  @note the following header provides a C-function.
@@ -27,5 +28,9 @@ void ComponentB::compute()
     float a = 10.F;
     float b = 11.3F;
     std::cout << "Result from Legacy function: " << doLegacyCompute(a, b) << std::endl;
+
+    MyFancySquareRoot sqRoot(static_cast<double>(a));
+
+    std::cout << "Result from Fancy Square Root: " << sqRoot.getSquareRoot() << std::endl;
 
 }
