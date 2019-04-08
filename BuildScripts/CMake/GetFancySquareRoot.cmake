@@ -11,17 +11,17 @@ function(getFancySquareRoot)
                       PREFIX
                       ${FancySquareRootWorkingDirectory} #top level directory in which the repository will be cloned.
 
-                      #GIT_REPOSITORY
-                      #https://github.com/RomanoViolet/FancySquareRoot.git
+                      GIT_REPOSITORY
+                      https://github.com/RomanoViolet/FancySquareRoot.git
 
-                      #GIT_TAG
-                      #${FancySquareRoot_Commit_Hash}
+                      GIT_TAG
+                      ${FancySquareRoot_Commit_Hash}
 
-                      #UPDATE_DISCONNECTED
-                      #1
+                      UPDATE_DISCONNECTED
+                      1
 
-                      URL # Download from a local folder instead of cloning from GitHub
-                      ${PROJECT_SOURCE_DIR}/../FancySquareRoot
+                      #URL # Download from a local folder instead of cloning from GitHub
+                      #${PROJECT_SOURCE_DIR}/../FancySquareRoot
 
                       #UPDATE_COMMAND # Not required if a specific commit is asked for.
                       #${GIT_EXECUTABLE} pull
