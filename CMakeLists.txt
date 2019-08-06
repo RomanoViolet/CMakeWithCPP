@@ -1,13 +1,24 @@
 #https://foonathan.net/blog/2016/03/03/cmake-install.html
-cmake_minimum_required(VERSION 3.10)
-
-# The name of the project
-project(DemoApplication VERSION 0.1 LANGUAGES CXX)
-
 # Setting build chain preferences
 include(
   ${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/SetBuildChainSpecifications.cmake
   )
+
+cmake_minimum_required(VERSION 3.10)
+
+# Supply arguments as key-value pairs CompilerChain: gcc | llvm | msvc | mingw
+# LanguageStandard: 11 | 14 | 17 BuildType: Debug | Release
+setbuildchainspecifications(CompilerChain
+                            "gcc"
+                            LanguageStandard
+                            11
+                            BuildType
+                            "Debug")
+
+# The name of the project
+project(DemoApplication VERSION 0.1 LANGUAGES CXX)
+
+
 
 # Tool Compliance
 include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/ToolCompliance.cmake)
@@ -43,14 +54,7 @@ include(
 # required
 ensuretoolcompliance(Git 2.15)
 
-# Supply arguments as key-value pairs CompilerChain: gcc | llvm | msvc | mingw
-# LanguageStandard: 11 | 14 | 17 BuildType: Debug | Release
-setbuildchainspecifications(CompilerChain
-                            "llvm"
-                            LanguageStandard
-                            11
-                            BuildType
-                            "Debug")
+
 
 # Set Global variables such as the commit-hash of the FancySquareRoot library that must be used.
 setglobalvariables(FancySquareRoot_Commit_Hash
