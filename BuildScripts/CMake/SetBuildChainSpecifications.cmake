@@ -1,5 +1,5 @@
 # Convenience function to set build standards
-macro(setBuildChainSpecifications CompilerChain LanguageStandard)
+macro(setBuildChainSpecifications)
 
   # Set the received arguments into variables
   set(CompilerChain "${ARGV1}")
@@ -32,29 +32,29 @@ macro(setBuildChainSpecifications CompilerChain LanguageStandard)
 
 
   if("${CompilerChain_alllowerCase}" STREQUAL "gcc")
-    set(CMAKE_CXX_COMPILER g++ FORCE)
-    set(CXX_STANDARD_REQUIRED true FORCE)
-    set(CMAKE_CXX_EXTENSIONS off FORCE)
+    set(CMAKE_CXX_COMPILER g++)
+    set(CXX_STANDARD_REQUIRED true)
+    set(CMAKE_CXX_EXTENSIONS off)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${CMAKE_CXX_FLAGS_GENERAL} -O0 -g3 -pg -ggdb")
     
 
   elseif("${CompilerChain_alllowerCase}" STREQUAL "llvm" OR "${CompilerChain_alllowerCase}" STREQUAL "clang")
-    set(CMAKE_CXX_COMPILER clang++ FORCE)
-    set(CXX_STANDARD_REQUIRED true FORCE)
-    set(CMAKE_CXX_EXTENSIONS off FORCE)
+    set(CMAKE_CXX_COMPILER clang++)
+    set(CXX_STANDARD_REQUIRED true)
+    set(CMAKE_CXX_EXTENSIONS off)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${CMAKE_CXX_FLAGS_GENERAL}  -O0 -g3 -pg -ggdb -Wunused-private-field")
 
 
   elseif("${CompilerChain_alllowerCase}" STREQUAL "mingw")
-    set(CMAKE_CXX_COMPILER g++ FORCE)
-    set(CXX_STANDARD_REQUIRED true FORCE)
-    set(CMAKE_CXX_EXTENSIONS off FORCE)
+    set(CMAKE_CXX_COMPILER g++)
+    set(CXX_STANDARD_REQUIRED true)
+    set(CMAKE_CXX_EXTENSIONS off)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${CMAKE_CXX_FLAGS_GENERAL}  -O0 -g3 -pg -ggdb ")
 
 
   elseif("${CompilerChain_alllowerCase}" STREQUAL "msvc")
-    set(CXX_STANDARD_REQUIRED true FORCE)
-    set(CMAKE_CXX_EXTENSIONS off FORCE)
+    set(CXX_STANDARD_REQUIRED true)
+    set(CMAKE_CXX_EXTENSIONS off)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
 
   endif()
