@@ -86,8 +86,8 @@ ExternalProject_Add(
   add_dependencies(${GMOCK_MAIN_LIBRARY} ${GTEST_LIBRARY})
 
   add_custom_target(AllGoogleTests ALL DEPENDS ${UNIT_TEST_TARGETS})
-   
-  add_subdirectory("${LocationOfGoogleTests}")
+
+  
 
 
 endfunction(BuildGoogleTests)

@@ -6,6 +6,9 @@ function(RunGoogleTests)
     add_custom_command(TARGET AllGoogleTests POST_BUILD
                        COMMAND ctest --verbose
                        COMMENT "Running Unit Tests..."
-                       WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}")
+                       WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+                       DEPENDS  googletest)
+
+    #add_subdirectory("${LocationOfGoogleTests}")
   endif(BUILD_TESTING)
 endfunction(RunGoogleTests)
