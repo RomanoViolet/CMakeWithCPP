@@ -1,9 +1,11 @@
 include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/RunGoogleTests.cmake)
-include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/BuildGoogleTests.cmake)
+#include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/BuildGoogleTests.cmake)
+#include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/ProvideGoogleTests.cmake)
 include(CTest)
 function(BuildAndRunAllGoogleTests)
-
-  buildgoogletests()
+  message("Build and Run Google Tests Start...")
+  #ProvideGoogleTests()
+  #BuildGoogleTests()
   rungoogletests()
 
 endfunction(BuildAndRunAllGoogleTests)

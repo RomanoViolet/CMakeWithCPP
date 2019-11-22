@@ -4,7 +4,7 @@ function(ensureToolCompliance)
 
   # get the version number into a local variable
   set(GitVersion "${ARGV1}")
-
+  
   # and set the requirement. If the package is found, ${GIT_EXECUTABLE} is set
   # globally.
   find_package(Git "${ARGV1}" REQUIRED)
