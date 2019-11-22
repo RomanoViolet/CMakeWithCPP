@@ -2,4 +2,3 @@
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Interfaces)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ComponentA)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ComponentB)
-
