@@ -15,9 +15,9 @@ setbuildchainspecifications(CompilerChain
                             BuildType
                             "Debug")
 
+
 # The name of the project
 project(DemoApplication VERSION 0.1 LANGUAGES CXX)
-
 
 
 # Tool Compliance

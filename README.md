@@ -39,19 +39,19 @@ setglobalvariables(FancySquareRoot_Commit_Hash
                    "${PROJECT_SOURCE_DIR}/GoogleTests")
 ```
 
-3. **GetFancySquareRoot.cmake**: The function implements the partial build to clone the external dependency `LegacyDependency` provided by an external project, see line 67:
+3. **GetFancySquareRoot.cmake**: The function implements the partial build to clone the external dependency `LegacyDependency` provided by an external project, see line 69:
 
 ```
 getfancysquareroot()
 ```
 
-4. **ProvideLegacyDependency.cmake**: Implements the partial build required to build the legacy dependency of the project on line 75:
+4. **ProvideLegacyDependency.cmake**: Implements the partial build required to build the legacy dependency of the project on line 77:
 
 ```
 ProvideLegacyDependency()
 ```
 
-5. **BuildDemoLibrary.cmake**: Implements the function to build this project, combining all dependencies, i.e., `LegacyDependency` and the `FancySquareRoot` on line 78:
+5. **BuildDemoLibrary.cmake**: Implements the function to build this project, combining all dependencies, i.e., `LegacyDependency` and the `FancySquareRoot` on line 80:
 
 ```
 buildDemoLibrary()
