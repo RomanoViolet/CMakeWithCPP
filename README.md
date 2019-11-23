@@ -15,6 +15,12 @@ The project structure mimics a typical project in a medium- to large organizatio
 | :---         |     :---:      |
 |23 November 2019         |     Updated CMake to automatically install Google Tests if the host does not have it installed already.     |
 
+## Tools, Etc.
+| Tool | Version Tested |
+| :---         |     :---:      |
+| CMake | 3.10.2 |
+| GCC   | 7.4.0-1 |
+| Clang   | 8.0.0.3 |
 ## Structure of the CMake Project
 The main 'CMakeLists.txt' is written to be modular, invoking function defined in `BuildScripts/CMake`. Specifically, the following functions are provided and used in the 'CMakeLists.txt':
 1. **ToolCompliance.cmake**:  Ensure required tools (in this project, `git` version 2.15 or higher) is available. Called on line 55 of `CMakeLists.txt`:
