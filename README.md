@@ -10,6 +10,10 @@ The project structure mimics a typical project in a medium- to large organizatio
 2. The project has depends on legacy projects (specifically, the `LegacyDependency` project which _does not_ provide a `CMakeLists.txt` file)
 3. Unit tests for the project supplied in the folder `GoogleTests`
 
+## Updates
+| Date | Note |
+| :---         |     :---:      |
+|23 November 2019         |     Updated CMake to automatically install Google Tests if the host does not have it installed already.     |
 
 ## Structure of the CMake Project
 The main 'CMakeLists.txt' is written to be modular, invoking function defined in `BuildScripts/CMake`. Specifically, the following functions are provided and used in the 'CMakeLists.txt':

@@ -62,6 +62,8 @@ setglobalvariables(FancySquareRoot_Commit_Hash
                    Location_of_GoogleTests
                    "${PROJECT_SOURCE_DIR}/GoogleTests")
 
+
+
 # Get FancySquareRoot library which is required for building the
 # DemoApplication. This library is sourced from another repository.
 getfancysquareroot()
@@ -83,13 +85,6 @@ InstallDemoLibrary( Location "${PROJECT_SOURCE_DIR}/build/DemoLibrary"
                     VERSION_MINOR 9
                 )
 
-# Debug step
-
-#add_custom_target(
-#                    DummyTarget
-#                    DEPENDS CopyLegacyDependency
-#                    COMMENT "Check whether the custom square root download and build worked"
-#                  )
 # ------------------Testing-----------------
 # Build and Run all Google Tests
 BuildAndRunAllGoogleTests()

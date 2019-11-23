@@ -50,22 +50,10 @@ function(getFancySquareRoot)
                       CONFIGURE_COMMAND #Explicitly specify where to run cmake since CMake assumes that CMakeLists.txt for external project is available under ${PREFIX}/src
                       ${CMAKE_COMMAND} ${FancySquareRootWorkingDirectory}/src/FancySquareRoot
 
-                      #COMMAND FILE( MAKE_DIRECTORY "${SOURCE_DIR}/build" )
-                      #COMMAND "${CMAKE_COMMAND} ${CMAKE_CURRENT_BINARY_DIR}/Downloads/src/FancySquareRoot --build"
-                      #COMMAND ${MAKE}
-                      #WORKING_DIRECTORY
-                      #${BINARY_DIR}
-
-                      #BINARY_DIR
-                      #${SOURCE_DIR}/build
-
                       BUILD_BYPRODUCTS
                       ${FancySquareRootWorkingDirectory}/src/FancySquareRoot_project-build/libFancySquareRoot.a
 
                   )
-
-                  #find_package(FancySquareRoot REQUIRED)
-                  #set(LIBS ${LIBS} ${FANCYSQUAREROOT_LIBRARIES})
 
                   ExternalProject_Get_Property(FancySquareRoot_project INSTALL_DIR)
                   message ("Fancy Installed location: ${INSTALL_DIR}")

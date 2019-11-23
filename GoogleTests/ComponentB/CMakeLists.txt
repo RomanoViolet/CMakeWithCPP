@@ -1,6 +1,6 @@
 # Configure google-test as a downloadable library.
-include(${PROJECT_SOURCE_DIR}/BuildScripts/CMake/BuildGoogleTests.cmake)
-find_package(GTest REQUIRED)
+#include(${PROJECT_SOURCE_DIR}/BuildScripts/CMake/BuildGoogleTests.cmake)
+#find_package(GTest REQUIRED)
 # The name of this directory
 get_filename_component(ThisGoogleTestDirectory ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 
@@ -25,15 +25,19 @@ if ( TEST_SRC )
 
 
     target_include_directories(${ThisGoogleTestDirectory}_GoogleTest
-    			PUBLIC
+                PUBLIC
           $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/CoreFunctions/Interfaces> # All data types used in the definition of core-functions.
           $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/CoreFunctions/ComponentB> # Header for Component B
           $<BUILD_INTERFACE:${PATH_TO_COPY_LEGACY_SOURCES}> # Legacy sources
-	  )
+      )
 
 
     set_target_properties(${ThisGoogleTestDirectory}_GoogleTest PROPERTIES LINKER_LANGUAGE CXX)
-    target_link_libraries(${ThisGoogleTestDirectory}_GoogleTest DemoLibrary Interfaces ${GMOCK_LIBRARY} ${GMOCK_MAIN_LIBRARY} ${GTEST_LIBRARY} ${GTEST_MAIN_LIBRARY} pthread)
+    target_link_libraries(${ThisGoogleTestDirectory}_GoogleTest DemoLibrary Interfaces Threads::Threads
+    gmock_main
+    gtest_main
+    gtest
+    gmock)
     #target_link_libraries(${ThisGoogleTestDirectory}_GoogleTest DemoLibrary gtest gtest_main gmock gmock_main pthread)
 
     add_dependencies( AllGoogleTests ${ThisGoogleTestDirectory}_GoogleTest)

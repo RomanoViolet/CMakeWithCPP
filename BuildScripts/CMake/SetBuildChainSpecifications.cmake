@@ -25,7 +25,14 @@ macro(setBuildChainSpecifications)
 
   set(
     CMAKE_CXX_FLAGS_GENERAL
-    "-Werror=comment -Werror=reorder -Wno-error=deprecated-declarations -Wall -Wextra -Werror -Wsequence-point -Werror=unused-variable"
+                            "-Werror=comment \
+                            -Werror=reorder \
+                            -Wno-error=deprecated-declarations \
+                            -Wall \
+                            -Wextra \
+                            -Werror \
+                            -Wsequence-point \
+                            -Werror=unused-variable"
     )
   set(CMAKE_CXX_FLAGS_RELEASE
       "${CMAKE_CXX_FLAGS_RELEASE} ${CMAKE_CXX_FLAGS_GENERAL} -O3")
@@ -36,7 +43,7 @@ macro(setBuildChainSpecifications)
     set(CXX_STANDARD_REQUIRED true)
     set(CMAKE_CXX_EXTENSIONS off)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${CMAKE_CXX_FLAGS_GENERAL} -O0 -g3 -pg -ggdb")
-    
+
 
   elseif("${CompilerChain_alllowerCase}" STREQUAL "llvm" OR "${CompilerChain_alllowerCase}" STREQUAL "clang")
     set(CMAKE_CXX_COMPILER clang++)

@@ -42,9 +42,25 @@ function(setGlobalVariables)
         FORCE "LocationOfGoogleTests")
 
   # The name of the built FancySquareRoot library
-  set(FancySquareRoot_LIB "FancySquareRoot" 
-        CACHE 
+  set(FancySquareRoot_LIB "FancySquareRoot"
+        CACHE
         FORCE "FancySquareRoot")
 
+  # In case Google Test library is not installed on the host, populate necessary variables.
+  # The value of these variables is based on the configuration of ExternalProject_Add.
+  # See BuildGoogleTestFromSources.cmake. 
+  if ( NOT GTEST_FOUND )
+    set ( GTEST_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/googletest-prefix/src/googletest/googletest/include
+          CACHE
+          FORCE "GTEST_INCLUDE_DIRS")
 
+    set(GTEST_MAIN_LIBRARY_PATH ${CMAKE_CURRENT_BINARY_DIR}/googletest-prefix/src/googletest-build/lib/${CMAKE_FIND_LIBRARY_PREFIXES}gtest_main.a
+        CACHE
+        FORCE "GTEST_MAIN_LIBRARY_PATH")
+
+    set(GTEST_MAIN_LIBRARY gtest_main
+        CACHE
+        FORCE
+        "GTEST_MAIN_LIBRARY")
+   endif( NOT GTEST_FOUND )
 endfunction(setGlobalVariables)
