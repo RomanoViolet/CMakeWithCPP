@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+=======
+include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/RunGoogleTests.cmake)
+#include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/BuildGoogleTests.cmake)
+#include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/ProvideGoogleTests.cmake)
+>>>>>>> master
+include(CTest)
+include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/RunGoogleTests.cmake)
+include(${CMAKE_CURRENT_SOURCE_DIR}/BuildScripts/CMake/ProvideGoogleTests.cmake)
+
+function(BuildAndRunAllGoogleTests)
+<<<<<<< HEAD
+  
+  # Downloads and installs GTest if not already installed on the host.
+  ProvideGoogleTests()
+
+  # Execute Google-tests. Uses CTest.
+=======
+  message("Build and Run Google Tests Start...")
+  #ProvideGoogleTests()
+  #BuildGoogleTests()
+>>>>>>> master
+  rungoogletests()
+
+endfunction(BuildAndRunAllGoogleTests)

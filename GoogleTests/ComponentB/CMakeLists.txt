@@ -1,6 +1,3 @@
-# Configure google-test as a downloadable library.
-#include(${PROJECT_SOURCE_DIR}/BuildScripts/CMake/BuildGoogleTests.cmake)
-#find_package(GTest REQUIRED)
 # The name of this directory
 get_filename_component(ThisGoogleTestDirectory ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 
