@@ -9,9 +9,10 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Diagnostics
-      run: echo $(pwd) && echo "" && echo $(ls)
-      working-directory: ${{runner.workspace}}/build
     - name: configure
-      run: mkdir build && cd build && cmake ..
+      run: |
+        echo $(pwd) 
+        echo ""
+        echo $(ls)
+        mkdir build && cd build && cmake ..
       working-directory: ${{runner.workspace}}/build
